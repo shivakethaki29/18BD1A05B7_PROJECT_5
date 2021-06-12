@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type="text" id="txt1" >
+<button onClick="sendMessage();">submit</button>
+
+<script type="text/javascript">
+var websocket=new WebSocket("ws://localhost:8080/WebSocket/se");
+websocket.onmessage=function display(txt1)
+{
+	alert(txt1.data);
+}
+function sendMessage()
+{
+	websocket.send(txt1);
+	txt1.value="";
+}
+</script>
+
+</body>
+</html>
